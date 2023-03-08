@@ -1,0 +1,19 @@
+Resources:
+  EC2Instance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      ImageId: ami-0c55b159cbfafe1f0 # Ubuntu 20.04 LTS
+      InstanceType: t2.micro
+      KeyName: my-ec2-key # replace with your own EC2 key pair
+      BlockDeviceMappings:
+        - DeviceName: /dev/sdb
+          Ebs:
+            VolumeSize: '10'
+            VolumeType: gp2
+            DeleteOnTermination: true
+      NetworkInterfaces:
+        - AssociatePublicIpAddress: 'true'
+          DeviceIndex: 0
+          DeleteOnTermination: 'true'
+          SubnetId: subnet-abc123 # replace with your own subnet ID
+

@@ -1,0 +1,7 @@
+Resources:
+  FooBucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: foo
+      AccessControl: PublicRead
+
